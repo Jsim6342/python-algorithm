@@ -5,7 +5,7 @@ N = int(input())
 check = [0] * (N + 1)
 
 for number in range(2, N + 1):
-    if check[number] == N:
+    if check[number] == 1:
         continue
     i = 2
     while True:
