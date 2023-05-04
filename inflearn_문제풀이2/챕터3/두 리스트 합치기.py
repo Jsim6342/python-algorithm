@@ -5,4 +5,6 @@ list_b = list(map(int, input().split()))
 
 result = list_a + list_b
 result.sort()
-print(result)
+
+for x in result:
+    print(x, end=' ')
