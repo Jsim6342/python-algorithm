@@ -7,16 +7,12 @@ for i in range(M):
     row, direction, count = map(int, input().split())
 
     new_list = [0] * N
-    for j in range(N):
+    for _ in range(count):
         if direction == 0:
-            index = j - count
-            new_list[index] = board[row][j]
+            board[row - 1].append(board[row - 1].pop(0))
         else:
-            index = j + count
-            if index >= N:
-                index -= N
-            new_list[index] = board[row][j]
-    board[row] = new_list
+            board[row - 1].insert(0, board[row - 1].pop())
+
 
 # return
 total = 0
@@ -25,8 +21,12 @@ end = N
 for i in range(N):
     for j in range(start, end):
         total += board[i][j]
-    start += 1
-    end -= 1
-    if i > N//2:
+    if i >= N // 2:
         start -= 1
         end += 1
+    else:
+        start += 1
+        end -= 1
+
+
+print(total)

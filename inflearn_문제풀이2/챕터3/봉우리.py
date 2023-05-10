@@ -1,30 +1,19 @@
 # init
 N = int(input())
+board = [list(map(int, input().split())) for _ in range(N)]
 
-board = [[0] * (N + 2) for _ in range(N + 2)]
-
-input_board = [list(map(int, input().split()) for _ in range(N))]
-
-print(board)
-print(input_board)
-
-for i in range(1, N+1):
-    for j in range(1, N+1):
-        board[i][j] = input_board[i-1][j-1]
+board.insert(0, [0] * N)
+board.append([0] * N)
+for x in board:
+    x.insert(0, 0)
+    x.append(0)
 
 # search
 count = 0
 dir = [[-1, 0], [0, 1], [1, 0], [0, -1]]
 
-for i in range(N):
-    for j in range(N):
-        check = True
-        for k in range(4):
-            ny, nx = dir[k]
-            if board[ny][nx] > board[i][j]:
-                check = False
-                break
-        if check:
+for i in range(1, N + 1):
+    for j in range(1, N + 1):
+        if all(board[i][j] > board[i + dir[k][0]][j + dir[k][1]] for k in range(4)):  #all(): 모두가 true일 때 참
             count += 1
-
 print(count)
