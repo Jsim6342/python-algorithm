@@ -23,4 +23,3 @@ for i in range(2, int(gcd**0.5) + 1):
 result.add(gcd)
 
 print(*sorted(list(result)))
-print(*[1,2,3])
