@@ -1,28 +1,17 @@
 # 각 지점마다 최댓값을 저장해 나가는 방식으로 바텀업
 
 N = int(input())
-score_list = [0]
+stairs = [int(input()) for _ in range(N)]
+dp = [0] * N
 
-for _ in range(N):
-    score_list.append(int(input()))
+if len(stairs) <= 2:
+    print(sum(stairs))
+else: 
+    dp[0] = stairs[0]
+    dp[1] = max(stairs[0]+stairs[1], stairs[1])
+    dp[2] = max(stairs[0]+stairs[2], stairs[1]+stairs[2])
 
-f = [0] * (N + 1)
-count = 0
+    for i in range(3, N):
+        dp[i] = max(dp[i-2] + stairs[i], dp[i-3] + stairs[i-1] + stairs[i])
 
-def solve(f, index, count):
-    if index >= N - 1:
-        return
-    if count == 3:
-        count -= 1
-        return
-    
-    f[index + 1] = max(f[index + 1] , f[index] + score_list[index + 1])
-    solve(f, index + 1, count)
-    
-    f[index + 2] = max(f[index + 2], f[index] + score_list[index + 2])
-    solve(f, index + 2, count + 1)
-
-
-solve(f, 0, 0)
-
-print(f)
+    print(dp[-1])
