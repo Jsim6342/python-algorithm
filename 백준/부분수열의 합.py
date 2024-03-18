@@ -1,4 +1,7 @@
-from itertools import combinations, combinations_with_replacement
+# 조합 시간 복잡도 = O(2^N)
+# 순열 시간 복잡도 = O(N!)
+# 이 문제는 조합이므로, 2^20 = 약 100만 풀이가능.
+from itertools import combinations
 
 N, S = map(int, input().split())
 arr = list(map(int, input().split()))

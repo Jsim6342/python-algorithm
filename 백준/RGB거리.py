@@ -1,3 +1,7 @@
+# 브루트포스 시간 복잡도: 3 * 2^(N-1)로 불가능
+# 그리디 풀이: 순간 최선의 선택이 최적해가 아니라 불가능
+# dp 풀이: 이전의 선택을 반영하여 각 R,G,B 별 최소값을 갱신 -> 시간 복잡도: O(3N)
+
 N = int(input())
 cost = []
 cost += [list(map(int, input().split())) for _ in range(N)]

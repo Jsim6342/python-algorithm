@@ -1,3 +1,5 @@
+# 시간 복잡도: 최대 13C6
+
 from itertools import combinations
 
 while True:

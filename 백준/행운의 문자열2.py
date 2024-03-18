@@ -1,4 +1,5 @@
 # 백 트래킹 방법
+# 최악의 경우 시간 복잡도 10!으로 동일
 from collections import Counter
 
 def func(lev):

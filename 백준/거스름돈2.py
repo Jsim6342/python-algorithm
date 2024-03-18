@@ -9,6 +9,5 @@ for change in changes:
         break
     res += money // change
     money = money % change
-    # print(money, res)
     
 print(res)

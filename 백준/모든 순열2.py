@@ -9,4 +9,3 @@ res = sorted(list(permutations(nums, N)))
 
 for x in res:
     print(*x)
-
